@@ -20,6 +20,7 @@ services:
              gunicorn backend.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - ./backend:/app
+      - static_volume:/app/staticfiles
     environment:
       - DEBUG=1
       - SECRET_KEY=supersecret
@@ -30,7 +31,7 @@ services:
       - DB_HOST=db
       - DB_PORT=5432
     ports:
-      - "8000:8000"
+      - "8001:8000"
     depends_on:
       - db
     networks:
@@ -41,7 +42,7 @@ services:
     volumes:
       - ./frontend:/app
     ports:
-      - "3000:80"
+      - "3001:80"
     depends_on:
       - backend
     networks:
@@ -49,6 +50,7 @@ services:
 
 volumes:
   postgres_data:
+  static_volume:
 
 networks:
   appnet:
