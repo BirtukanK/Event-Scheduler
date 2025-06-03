@@ -44,7 +44,7 @@ Frontend (React + Nginx): http://localhost:3001
 Backend (Django API): http://localhost:8001
 
 Admin Panel: http://localhost:8001/admin
-
+```
 ## Author
 Built by: Birtukan Kuma
 
